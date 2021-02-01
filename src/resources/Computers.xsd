@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/devices"
+        xmlns:tns="http://www.example.com/devices"
+        elementFormDefault="qualified">
+    
+    <element name="devices">
+        <complexType>
+            <sequence>
+                <element ref="tns:accessory" minOccurs="1" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Accessory">
+        <sequence>
+            <element name="name">
+                <simpleType>
+                    <restriction base="string">
+                        <minLength value="4"/>
+                        <maxLength value="40"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="origin" type="tns:originCode"/>
+            <element name="price" type="float"/>
+            <element name="category" type="tns:categoryType"/>
+            <element name="type" type="tns:accessory_type"/>
+            <element name="year_of_issue" type="gYear"/>
+        </sequence>
+        <attribute name="id" use="required" type="ID"/>
+    </complexType>
+
+    <complexType name="CPU">
+        <complexContent>
+            <extension base="tns:Accessory">
+                <sequence>
+                    <element name="socket" type="tns:socketTypes">
+                    </element>
+                    <element name="frequency" type="integer"/>
+                    <element name="cores_num" type="positiveInteger"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="GPU">
+        <complexContent>
+            <extension base="tns:Accessory">
+                <sequence>
+                    <element name="memory_capacity" type="string"/>
+                    <element name="memory_type" type="tns:gpuMemoryTypes">
+
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Memory">
+        <complexContent>
+            <extension base="tns:Accessory">
+                <sequence>
+                    <element name="memory_capacity" type="string"/>
+                    <element name="memory_type" type="tns:ramTypes"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+
+    <complexType name="accessory_type">
+        <sequence>
+            <element name="energy-consumption" type="float" minOccurs="0" maxOccurs="1"/>
+            <element name="ports" type="tns:portsType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="cooling" use="optional" default="no">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="yes|no"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="periphery" use="required">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="yes|no"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="required_for_launch" use="required">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="yes|no"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+
+    </complexType>
+
+    <simpleType name="socketTypes">
+        <restriction base="string">
+            <enumeration value="LGA 1151"/>
+            <enumeration value="LGA 1150"/>
+            <enumeration value="LGA 1155"/>
+            <enumeration value="LGA 2011"/>
+            <enumeration value="LGA 1156"/>
+            <enumeration value="LGA 1200"/>
+            <enumeration value="TRX4"/>
+            <enumeration value="TR4"/>
+            <enumeration value="AM4"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="gpuMemoryTypes">
+        <restriction base="string">
+            <enumeration value="GDDR3"/>
+            <enumeration value="GDDR4"/>
+            <enumeration value="GDDR5"/>
+            <enumeration value="GDDR6"/>
+            <enumeration value="GDDR2"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="ramTypes">
+        <restriction base="string">
+            <enumeration value="DDR3"/>
+            <enumeration value="DDR4"/>
+            <enumeration value="DDR2"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="portsType">
+        <restriction base="string">
+            <enumeration value="VGA"/>
+            <enumeration value="DVI"/>
+            <enumeration value="HDMI"/>
+            <enumeration value="DisplayPort"/>
+            <enumeration value="TV/OUT"/>
+            <enumeration value="PS/2"/>
+            <enumeration value="USB"/>
+            <enumeration value="COM"/>
+            <enumeration value="LPT"/>
+            <enumeration value="MiniJack"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="categoryType">
+        <restriction base="string">
+            <enumeration value="CPU"/>
+            <enumeration value="GPU"/>
+            <enumeration value="Memory"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="originCode">
+        <restriction base="string">
+            <enumeration value="RU"/>
+            <enumeration value="CN"/>
+            <enumeration value="DE"/>
+            <enumeration value="ID"/>
+            <enumeration value="JP"/>
+            <enumeration value="US"/>
+        </restriction>
+    </simpleType>
+
+    
+    <element name="accessory" type="tns:Accessory" abstract="true"/>
+    <element name="CPU" type="tns:CPU" substitutionGroup="tns:accessory"/>
+    <element name="GPU" type="tns:GPU" substitutionGroup="tns:accessory"/>
+    <element name="Memory" type="tns:Memory" substitutionGroup="tns:accessory"/>
+</schema>

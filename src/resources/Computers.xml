@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices xmlns="http://www.example.com/devices">
+    <CPU id="ID-101">
+        <name>r5 2600</name>
+        <origin>DE</origin>
+        <price>362</price>
+        <category>CPU</category>
+        <type periphery="no" required_for_launch="yes" cooling="yes">
+            <energy-consumption>65</energy-consumption>
+        </type>
+        <year_of_issue>2018</year_of_issue>
+        <socket>AM4</socket>
+        <frequency>3900</frequency>
+        <cores_num>6</cores_num>
+    </CPU>
+    <CPU id="ID-102">
+        <name>i3-9100</name>
+        <origin>CN</origin>
+        <price>313.38</price>
+        <category>CPU</category>
+        <type periphery="no" required_for_launch="yes" cooling="yes">
+            <energy-consumption>65</energy-consumption>
+        </type>
+        <year_of_issue>2020</year_of_issue>
+        <socket>LGA 1151</socket>
+        <frequency>4200</frequency>
+        <cores_num>4</cores_num>
+    </CPU>
+    <CPU id="ID-103">
+        <name>i5-9400</name>
+        <origin>ID</origin>
+        <price>431.11</price>
+        <category>CPU</category>
+        <type periphery="no" required_for_launch="yes" cooling="yes">
+            <energy-consumption>65</energy-consumption>
+        </type>
+        <year_of_issue>2020</year_of_issue>
+        <socket>LGA 1151</socket>
+        <frequency>4100</frequency>
+        <cores_num>6</cores_num>
+    </CPU>
+    <CPU id="ID-104">
+        <name>i5-9400F</name>
+        <origin>CN</origin>
+        <price>377.3</price>
+        <category>CPU</category>
+        <type periphery="no" required_for_launch="yes" cooling="yes">
+            <energy-consumption>65</energy-consumption>
+        </type>
+        <year_of_issue>2020</year_of_issue>
+        <socket>LGA 1151</socket>
+        <frequency>4100</frequency>
+        <cores_num>6</cores_num>
+    </CPU>
+    <CPU id="ID-105">
+        <name>i5-10400F</name>
+        <origin>CN</origin>
+        <price>313.38</price>
+        <category>CPU</category>
+        <type periphery="no" required_for_launch="yes" cooling="yes">
+            <energy-consumption>65</energy-consumption>
+        </type>
+        <year_of_issue>2020</year_of_issue>
+        <socket>LGA 1200</socket>
+        <frequency>4300</frequency>
+        <cores_num>6</cores_num>
+    </CPU>
+    <Memory id="ID-201">
+        <name>Patriot Memory SL</name>
+        <origin>RU</origin>
+        <price>60.07</price>
+        <category>Memory</category>
+        <type periphery="no" required_for_launch="yes">
+            <energy-consumption>1.5</energy-consumption>
+        </type>
+        <year_of_issue>2017</year_of_issue>
+        <memory_capacity>4</memory_capacity>
+        <memory_type>DDR3</memory_type>
+    </Memory>
+    <Memory id="ID-202">
+        <name>Patriot Memory VIPER STEAL</name>
+        <origin>RU</origin>
+        <price>116.75</price>
+        <category>Memory</category>
+        <type periphery="no" required_for_launch="yes">
+            <energy-consumption>1.5</energy-consumption>
+        </type>
+        <year_of_issue>2018</year_of_issue>
+        <memory_capacity>8</memory_capacity>
+        <memory_type>DDR4</memory_type>
+    </Memory>
+    <Memory id="ID-203">
+        <name>HyperX Fury</name>
+        <origin>US</origin>
+        <price>215.34</price>
+        <category>Memory</category>
+        <type periphery="no" required_for_launch="yes">
+            <energy-consumption>1.5</energy-consumption>
+        </type>
+        <year_of_issue>2019</year_of_issue>
+        <memory_capacity>8</memory_capacity>
+        <memory_type>DDR4</memory_type>
+    </Memory>
+    <Memory id="ID-204">
+        <name>HyperX Predator RGB</name>
+        <origin>DE</origin>
+        <price>229.51</price>
+        <category>Memory</category>
+        <type periphery="no" required_for_launch="yes">
+            <energy-consumption>1.5</energy-consumption>
+        </type>
+        <year_of_issue>2019</year_of_issue>
+        <memory_capacity>8</memory_capacity>
+        <memory_type>DDR4</memory_type>
+    </Memory>
+    <Memory id="ID-205">
+        <name>Samsung M378</name>
+        <origin>JP</origin>
+        <price>129.47</price>
+        <category>Memory</category>
+        <type periphery="no" required_for_launch="yes">
+            <energy-consumption>1.5</energy-consumption>
+        </type>
+        <year_of_issue>2018</year_of_issue>
+        <memory_capacity>8</memory_capacity>
+        <memory_type>DDR4</memory_type>
+    </Memory>
+    <GPU id="ID-301">
+        <name>MSI GeForce GTX 1650</name>
+        <origin>US</origin>
+        <price>824.21</price>
+        <category>GPU</category>
+        <type periphery="no" required_for_launch="no" cooling="yes">
+            <energy-consumption>300</energy-consumption>
+            <ports>HDMI</ports>
+            <ports>DisplayPort</ports>
+        </type>
+        <year_of_issue>2019</year_of_issue>
+        <memory_capacity>4096</memory_capacity>
+        <memory_type>GDDR5</memory_type>
+    </GPU>
+    <GPU id="ID-302">
+        <name>GIGABYTE GeForce GTX 1660</name>
+        <origin>RU</origin>
+        <price>1582.23</price>
+        <category>GPU</category>
+        <type periphery="no" required_for_launch="no" cooling="yes">
+            <energy-consumption>300</energy-consumption>
+            <ports>HDMI</ports>
+            <ports>DisplayPort</ports>
+        </type>
+        <year_of_issue>2019</year_of_issue>
+        <memory_capacity>6144</memory_capacity>
+        <memory_type>GDDR5</memory_type>
+    </GPU>
+    <GPU id="ID-303">
+        <name>GIGABYTE GeForce GTX 1050 Ti</name>
+        <origin>US</origin>
+        <price>495.35</price>
+        <category>GPU</category>
+        <type periphery="no" required_for_launch="no" cooling="yes">
+            <energy-consumption>300</energy-consumption>
+            <ports>HDMI</ports>
+            <ports>DisplayPort</ports>
+            <ports>DVI</ports>
+        </type>
+        <year_of_issue>2017</year_of_issue>
+        <memory_capacity>4096</memory_capacity>
+        <memory_type>GDDR5</memory_type>
+    </GPU>
+    <GPU id="ID-304">
+        <name>Palit GeForce GTX 1650</name>
+        <origin>JP</origin>
+        <price>877.8</price>
+        <category>GPU</category>
+        <type periphery="no" required_for_launch="no" cooling="yes">
+            <energy-consumption>300</energy-consumption>
+            <ports>HDMI</ports>
+            <ports>DisplayPort</ports>
+            <ports>DVI</ports>
+        </type>
+        <year_of_issue>2019</year_of_issue>
+        <memory_capacity>4096</memory_capacity>
+        <memory_type>GDDR5</memory_type>
+    </GPU>
+    <GPU id="ID-305">
+        <name>ASUS TUF Gaming GeForce GTX 1660</name>
+        <origin>ID</origin>
+        <price>936.21</price>
+        <category>GPU</category>
+        <type periphery="no" required_for_launch="no" cooling="yes">
+            <energy-consumption>300</energy-consumption>
+            <ports>HDMI</ports>
+            <ports>DisplayPort</ports>
+            <ports>DVI</ports>
+        </type>
+        <year_of_issue>2019</year_of_issue>
+        <memory_capacity>4096</memory_capacity>
+        <memory_type>GDDR6</memory_type>
+    </GPU>
+    <GPU id="ID-306">
+        <name>GIGABYTE Radeon RX 5500 XT</name>
+        <origin>US</origin>
+        <price>1229.21</price>
+        <category>GPU</category>
+        <type periphery="no" required_for_launch="no" cooling="yes">
+            <energy-consumption>300</energy-consumption>
+            <ports>HDMI</ports>
+            <ports>DisplayPort</ports>
+        </type>
+        <year_of_issue>2019</year_of_issue>
+        <memory_capacity>8192</memory_capacity>
+        <memory_type>GDDR6</memory_type>
+    </GPU>
+</devices>
