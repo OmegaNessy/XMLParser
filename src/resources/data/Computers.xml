@@ -6,7 +6,7 @@
         <price>362</price>
         <category>CPU</category>
         <type periphery="no" required_for_launch="yes" cooling="yes">
-            <energy-consumption>65</energy-consumption>
+            <energy_consumption>65</energy_consumption>
         </type>
         <year_of_issue>2018</year_of_issue>
         <socket>AM4</socket>
@@ -19,7 +19,7 @@
         <price>313.38</price>
         <category>CPU</category>
         <type periphery="no" required_for_launch="yes" cooling="yes">
-            <energy-consumption>65</energy-consumption>
+            <energy_consumption>65</energy_consumption>
         </type>
         <year_of_issue>2020</year_of_issue>
         <socket>LGA 1151</socket>
@@ -32,7 +32,7 @@
         <price>431.11</price>
         <category>CPU</category>
         <type periphery="no" required_for_launch="yes" cooling="yes">
-            <energy-consumption>65</energy-consumption>
+            <energy_consumption>65</energy_consumption>
         </type>
         <year_of_issue>2020</year_of_issue>
         <socket>LGA 1151</socket>
@@ -45,7 +45,7 @@
         <price>377.3</price>
         <category>CPU</category>
         <type periphery="no" required_for_launch="yes" cooling="yes">
-            <energy-consumption>65</energy-consumption>
+            <energy_consumption>65</energy_consumption>
         </type>
         <year_of_issue>2020</year_of_issue>
         <socket>LGA 1151</socket>
@@ -58,7 +58,7 @@
         <price>313.38</price>
         <category>CPU</category>
         <type periphery="no" required_for_launch="yes" cooling="yes">
-            <energy-consumption>65</energy-consumption>
+            <energy_consumption>65</energy_consumption>
         </type>
         <year_of_issue>2020</year_of_issue>
         <socket>LGA 1200</socket>
@@ -70,8 +70,8 @@
         <origin>RU</origin>
         <price>60.07</price>
         <category>Memory</category>
-        <type periphery="no" required_for_launch="yes">
-            <energy-consumption>1.5</energy-consumption>
+        <type periphery="no" required_for_launch="yes" cooling="no">
+            <energy_consumption>1.5</energy_consumption>
         </type>
         <year_of_issue>2017</year_of_issue>
         <memory_capacity>4</memory_capacity>
@@ -82,8 +82,8 @@
         <origin>RU</origin>
         <price>116.75</price>
         <category>Memory</category>
-        <type periphery="no" required_for_launch="yes">
-            <energy-consumption>1.5</energy-consumption>
+        <type periphery="no" required_for_launch="yes" cooling="no">
+            <energy_consumption>1.5</energy_consumption>
         </type>
         <year_of_issue>2018</year_of_issue>
         <memory_capacity>8</memory_capacity>
@@ -94,8 +94,8 @@
         <origin>US</origin>
         <price>215.34</price>
         <category>Memory</category>
-        <type periphery="no" required_for_launch="yes">
-            <energy-consumption>1.5</energy-consumption>
+        <type periphery="no" required_for_launch="yes" cooling="no">
+            <energy_consumption>1.5</energy_consumption>
         </type>
         <year_of_issue>2019</year_of_issue>
         <memory_capacity>8</memory_capacity>
@@ -106,8 +106,8 @@
         <origin>DE</origin>
         <price>229.51</price>
         <category>Memory</category>
-        <type periphery="no" required_for_launch="yes">
-            <energy-consumption>1.5</energy-consumption>
+        <type periphery="no" required_for_launch="yes" cooling="no">
+            <energy_consumption>1.5</energy_consumption>
         </type>
         <year_of_issue>2019</year_of_issue>
         <memory_capacity>8</memory_capacity>
@@ -118,8 +118,8 @@
         <origin>JP</origin>
         <price>129.47</price>
         <category>Memory</category>
-        <type periphery="no" required_for_launch="yes">
-            <energy-consumption>1.5</energy-consumption>
+        <type periphery="no" required_for_launch="yes" cooling="no">
+            <energy_consumption>1.5</energy_consumption>
         </type>
         <year_of_issue>2018</year_of_issue>
         <memory_capacity>8</memory_capacity>
@@ -131,7 +131,7 @@
         <price>824.21</price>
         <category>GPU</category>
         <type periphery="no" required_for_launch="no" cooling="yes">
-            <energy-consumption>300</energy-consumption>
+            <energy_consumption>300</energy_consumption>
             <ports>HDMI</ports>
             <ports>DisplayPort</ports>
         </type>
@@ -145,7 +145,7 @@
         <price>1582.23</price>
         <category>GPU</category>
         <type periphery="no" required_for_launch="no" cooling="yes">
-            <energy-consumption>300</energy-consumption>
+            <energy_consumption>300</energy_consumption>
             <ports>HDMI</ports>
             <ports>DisplayPort</ports>
         </type>
@@ -159,7 +159,7 @@
         <price>495.35</price>
         <category>GPU</category>
         <type periphery="no" required_for_launch="no" cooling="yes">
-            <energy-consumption>300</energy-consumption>
+            <energy_consumption>300</energy_consumption>
             <ports>HDMI</ports>
             <ports>DisplayPort</ports>
             <ports>DVI</ports>
@@ -174,7 +174,7 @@
         <price>877.8</price>
         <category>GPU</category>
         <type periphery="no" required_for_launch="no" cooling="yes">
-            <energy-consumption>300</energy-consumption>
+            <energy_consumption>300</energy_consumption>
             <ports>HDMI</ports>
             <ports>DisplayPort</ports>
             <ports>DVI</ports>
@@ -189,7 +189,7 @@
         <price>936.21</price>
         <category>GPU</category>
         <type periphery="no" required_for_launch="no" cooling="yes">
-            <energy-consumption>300</energy-consumption>
+            <energy_consumption>300</energy_consumption>
             <ports>HDMI</ports>
             <ports>DisplayPort</ports>
             <ports>DVI</ports>
@@ -204,7 +204,7 @@
         <price>1229.21</price>
         <category>GPU</category>
         <type periphery="no" required_for_launch="no" cooling="yes">
-            <energy-consumption>300</energy-consumption>
+            <energy_consumption>300</energy_consumption>
             <ports>HDMI</ports>
             <ports>DisplayPort</ports>
         </type>

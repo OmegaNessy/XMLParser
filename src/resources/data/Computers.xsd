@@ -71,7 +71,7 @@
 
     <complexType name="accessory_type">
         <sequence>
-            <element name="energy-consumption" type="float" minOccurs="0" maxOccurs="1"/>
+            <element name="energy_consumption" type="float" minOccurs="0" maxOccurs="1"/>
             <element name="ports" type="tns:portsType" minOccurs="0" maxOccurs="unbounded"/>
         </sequence>
         <attribute name="cooling" use="optional" default="no">
