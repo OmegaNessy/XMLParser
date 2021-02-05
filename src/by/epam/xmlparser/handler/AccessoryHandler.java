@@ -7,7 +7,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 import java.time.Year;
 import java.util.EnumSet;
-import java.util.HashSet;
 import java.util.Set;
 
 public class AccessoryHandler extends DefaultHandler {
@@ -27,7 +26,8 @@ public class AccessoryHandler extends DefaultHandler {
     private static final String ELEMENT_CPU = "CPU";
     private static final String ELEMENT_GPU = "GPU";
     private static final String ELEMENT_MEMORY = "Memory";
-
+    private static final String ELEMENT_ID = "id";
+    private static final String ELEMENT_POSITIVE = "yes";
 
     public AccessoryHandler(Set<Accessory> accessorySet) {
         accessories = accessorySet;
@@ -123,23 +123,23 @@ public class AccessoryHandler extends DefaultHandler {
     private void objectCreation(Attributes attributes, String qName) {
         if (ELEMENT_CPU.equals(qName)) {
             cpu = new Cpu();
-            cpu.setId(attributes.getValue("id"));
+            cpu.setId(attributes.getValue(ELEMENT_ID));
             isCpu = true;
         }
         if (qName.equals(ELEMENT_GPU)) {
             gpu = new Gpu();
-            gpu.setId(attributes.getValue("id"));
+            gpu.setId(attributes.getValue(ELEMENT_ID));
             isGpu = true;
         }
         if(qName.equals(ELEMENT_MEMORY)){
             memory = new Memory();
-            memory.setId(attributes.getValue("id"));
+            memory.setId(attributes.getValue(ELEMENT_ID));
             isMemory = true;
         }
     }
 
     private boolean responseToBoolean(String data) {
-        return data.equals("yes");
+        return data.equals(ELEMENT_POSITIVE);
     }
 
     private void addPort(String data) {

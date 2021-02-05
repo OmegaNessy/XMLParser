@@ -19,8 +19,9 @@ import java.time.Year;
 import java.util.Set;
 
 public class AccessoryStaxBuilder extends AbstractAccessoryBuilder {
-    private XMLInputFactory inputFactory;
     private static final Logger logger = LogManager.getLogger();
+    private XMLInputFactory inputFactory;
+    private static final String ELEMENT_POSITIVE="yes";
 
     public AccessoryStaxBuilder() {
         super();
@@ -191,6 +192,6 @@ public class AccessoryStaxBuilder extends AbstractAccessoryBuilder {
         return text;
     }
     private boolean stringToBoolean (String data){
-        return data.equals("yes");
+        return data.equals(ELEMENT_POSITIVE);
     }
 }
