@@ -64,7 +64,6 @@ public class Type {
 
     public void setPorts (List<String> ports) {this.ports = ports;}
 
-
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -84,7 +83,5 @@ public class Type {
         builder.append('}');
         return builder.toString();
     }
-
     //TODO: Спросить про гет метод у Листа
-
 }

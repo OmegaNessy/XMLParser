@@ -4,7 +4,7 @@ import by.epam.xmlparser.exception.CustomException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class AccessoriesBuilderFactory {
+public class AccessoryBuilderFactory {
     static final Logger logger = LogManager.getLogger();
     private enum TypeParser {
         SAX,
@@ -17,11 +17,11 @@ public class AccessoriesBuilderFactory {
             TypeParser type = TypeParser.valueOf(typeParser.toUpperCase());
             switch (type) {
                 case DOM:
-                    return new AccessoriesDomBuilder();
+                    return new AccessoryDomBuilder();
                 case STAX:
-                    return new AccessoriesStaxBuilder();
+                    return new AccessoryStaxBuilder();
                 case SAX:
-                    return new AccessoriesSaxBuilder();
+                    return new AccessorySaxBuilder();
                 default:
                     throw new EnumConstantNotPresentException(type
                             .getDeclaringClass(), type.name());
@@ -29,7 +29,6 @@ public class AccessoriesBuilderFactory {
         } catch (IllegalArgumentException | EnumConstantNotPresentException e) {
             logger.error("Такого типа парсера не сущестует");
         }
-
         throw new CustomException("Тип парсера выбран некорректно");
     }
 }

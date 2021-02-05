@@ -1,7 +1,6 @@
 package by.epam.xmlparser.parser;
 
 import by.epam.xmlparser.entity.Accessory;
-
 import java.util.HashSet;
 import java.util.Set;
 

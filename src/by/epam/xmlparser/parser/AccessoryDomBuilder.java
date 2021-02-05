@@ -11,7 +11,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,10 +19,10 @@ import java.io.IOException;
 import java.time.Year;
 import java.util.Set;
 
-public class AccessoriesDomBuilder extends AbstractAccessoryBuilder{
+public class AccessoryDomBuilder extends AbstractAccessoryBuilder{
     private DocumentBuilder docBuilder;
     static final Logger logger = LogManager.getLogger();
-    public AccessoriesDomBuilder() {
+    public AccessoryDomBuilder() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             docBuilder = factory.newDocumentBuilder();
@@ -32,7 +31,7 @@ public class AccessoriesDomBuilder extends AbstractAccessoryBuilder{
         }
     }
 
-    public AccessoriesDomBuilder(Set<Accessory> accessories) {
+    public AccessoryDomBuilder(Set<Accessory> accessories) {
         super(accessories);
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
@@ -56,22 +55,18 @@ public class AccessoriesDomBuilder extends AbstractAccessoryBuilder{
             NodeList cpus = element.getElementsByTagName("CPU");
             NodeList gpus = element.getElementsByTagName("GPU");
             NodeList memories = element.getElementsByTagName("Memories");
-
             for (int i = 0; i < cpus.getLength(); i++) {
                 Element node = (Element)cpus.item(i);
                 getAccessories().add(buildCpu(node));
             }
-
             for (int i = 0; i < gpus.getLength(); i++) {
                 Element node = (Element)gpus.item(i);
                 getAccessories().add(buildGpu(node));
             }
-
             for (int i = 0; i < memories.getLength(); i++) {
                 Element node = (Element)memories.item(i);
                 getAccessories().add(buildMemory(node));
             }
-
             logger.info("Dom парсинг прошел успешно");
         } catch (IOException e) {
             logger.error("Ошибка чтения файла.");

@@ -5,7 +5,6 @@ import by.epam.xmlparser.handler.AccessoryHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -13,13 +12,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 
-public class AccessoriesSaxBuilder extends AbstractAccessoryBuilder{
+public class AccessorySaxBuilder extends AbstractAccessoryBuilder{
     private static final Logger logger = LogManager.getLogger();
-
     private SAXParser parser;
     private AccessoryHandler accessoryHandler;
 
-    public AccessoriesSaxBuilder() {
+    public AccessorySaxBuilder() {
         try {
             parser = SAXParserFactory.newInstance().newSAXParser();
             accessoryHandler = new AccessoryHandler(getAccessories());
@@ -30,7 +28,7 @@ public class AccessoriesSaxBuilder extends AbstractAccessoryBuilder{
         }
     }
 
-    public AccessoriesSaxBuilder(Set<Accessory> accessories) {
+    public AccessorySaxBuilder(Set<Accessory> accessories) {
         super(accessories);
         try {
             parser = SAXParserFactory.newInstance().newSAXParser();

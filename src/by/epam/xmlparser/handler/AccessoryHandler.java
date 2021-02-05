@@ -21,7 +21,6 @@ public class AccessoryHandler extends DefaultHandler {
     private boolean isMemory;
     private ComputersXmlTag currentTag;
     private final EnumSet<ComputersXmlTag> withText;
-
     private static final String ATTRIBUTE_PERIPHERY = "periphery";
     private static final String ATTRIBUTE_COOLING = "cooling";
     private static final String ATTRIBUTE_REQUIRED = "required_for_launch";
@@ -239,6 +238,4 @@ public class AccessoryHandler extends DefaultHandler {
             memory.setPrice(data);
         }
     }
-//TODO: Почему дэфолтное значение не подставляется
-
 }

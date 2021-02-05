@@ -18,16 +18,16 @@ import java.io.IOException;
 import java.time.Year;
 import java.util.Set;
 
-public class AccessoriesStaxBuilder extends AbstractAccessoryBuilder {
+public class AccessoryStaxBuilder extends AbstractAccessoryBuilder {
     private XMLInputFactory inputFactory;
     private static final Logger logger = LogManager.getLogger();
 
-    public AccessoriesStaxBuilder() {
+    public AccessoryStaxBuilder() {
         super();
         inputFactory = XMLInputFactory.newInstance();
     }
 
-    public AccessoriesStaxBuilder(Set<Accessory> accessories) {
+    public AccessoryStaxBuilder(Set<Accessory> accessories) {
         super(accessories);
         inputFactory = XMLInputFactory.newInstance();
     }
@@ -38,7 +38,6 @@ public class AccessoriesStaxBuilder extends AbstractAccessoryBuilder {
         String name;
         try (FileInputStream inputStream = new FileInputStream(new File(fileName))) {
             reader = inputFactory.createXMLStreamReader(inputStream);
-
             while (reader.hasNext()) {
                 int type = reader.next();
                 if (type == XMLStreamConstants.START_ELEMENT) {
@@ -46,7 +45,6 @@ public class AccessoriesStaxBuilder extends AbstractAccessoryBuilder {
                     buildObject(name, reader);
                 }
             }
-
             logger.info("Stax парсинг успешно завершен!");
         } catch (XMLStreamException ex) {
             logger.error("Ошибка парсинга StAX!");
@@ -133,7 +131,6 @@ public class AccessoriesStaxBuilder extends AbstractAccessoryBuilder {
                         case ENERGY_CONSUMPTION -> gpu.getType().setEnergyConsumption(Float.parseFloat(getXMLText(reader)));
                         case PORTS -> gpu.getType().addPort(getXMLText(reader));
                     }
-
                 case XMLStreamConstants.CHARACTERS: break;
                 case XMLStreamConstants.END_ELEMENT:
                     name = reader.getLocalName();
@@ -183,8 +180,6 @@ public class AccessoriesStaxBuilder extends AbstractAccessoryBuilder {
         memory.getType().setRequiredForLaunch(stringToBoolean(reader.getAttributeValue(null,ComputersXmlTag.REQUIRED_FOR_LAUNCH.getValue())));
         memory.getType().setHasCooling(stringToBoolean(reader.getAttributeValue(null,ComputersXmlTag.COOLING.getValue())));
     }
-
-
 
     private String getXMLText(final XMLStreamReader reader)
             throws XMLStreamException {

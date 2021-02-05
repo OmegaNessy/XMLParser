@@ -55,5 +55,4 @@ public class Memory extends Accessory {
         string.append('}');
         return string.toString();
     }
-
 }

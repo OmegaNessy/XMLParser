@@ -23,10 +23,8 @@ public class DefaultValidator {
         File schemaLocation = new File(schemaName);
         try{
             Schema schema = schemaFactory.newSchema(schemaLocation);
-// creating a schema-based validator
             Validator validator = schema.newValidator();
             Source source = new StreamSource(fileName);
-// document check
             validator.setErrorHandler(new AccessoryErrorHandler());
             validator.validate(source);
             isValid = true;
