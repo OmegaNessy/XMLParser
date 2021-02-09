@@ -1,6 +1,7 @@
 package by.epam.xmlparser.entity;
 
 import java.time.Year;
+import java.util.Objects;
 
 public class Gpu extends Accessory{
     private int memoryCapacity;
@@ -9,10 +10,10 @@ public class Gpu extends Accessory{
     public Gpu() {
     }
 
-    public Gpu(String id, String origin, float price,
+    public Gpu(String id, String origin,String name, float price,
                String category, Type type, Year yearOfIssue,
                int memoryCapacity, String memoryType) {
-        super(id,origin,price,category,type,yearOfIssue);
+        super(id,origin,name,price,category,type,yearOfIssue);
         this.memoryCapacity = memoryCapacity;
         this.memoryType = memoryType;
     }
@@ -31,6 +32,25 @@ public class Gpu extends Accessory{
 
     public void setMemoryType(String memoryType) {
         this.memoryType = memoryType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Gpu)) return false;
+        if (!super.equals(o)) return false;
+        Gpu gpu = (Gpu) o;
+        return memoryCapacity == gpu.memoryCapacity &&
+                Objects.equals(memoryType, gpu.memoryType);
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = super.hashCode();
+        result = PRIME * result + memoryCapacity;
+        result = PRIME * result + (memoryType!=null?memoryType.hashCode():0);
+        return result;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package by.epam.xmlparser.entity;
 
 import java.time.Year;
+import java.util.Objects;
 
 public abstract class Accessory {
     protected String id;
@@ -14,11 +15,12 @@ public abstract class Accessory {
     public Accessory() {
     }
 
-    public Accessory(String id, String origin, //SolarLint tip protected. Quest: WHY?
+    public Accessory(String id, String origin, String name, //TODO:SolarLint tip protected. Quest: WHY?
                      float price, String category,
                      Type type, Year yearOfIssue) {
         this.id = id;
         this.origin = origin;
+        this.name = name;
         this.price = price;
         this.category = category;
         this.type = type;
@@ -79,5 +81,60 @@ public abstract class Accessory {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Accessory)) return false;
+        Accessory accessory = (Accessory) o;
+        return Float.compare(accessory.price, price) == 0 &&
+                Objects.equals(id, accessory.id) &&
+                Objects.equals(name, accessory.name) &&
+                Objects.equals(origin, accessory.origin) &&
+                Objects.equals(category, accessory.category) &&
+                type.equals(accessory.type) &&
+                Objects.equals(yearOfIssue, accessory.yearOfIssue);
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME*result +(id!=null?id.hashCode():0);
+        result =PRIME*result+(name!=null?name.hashCode():0);
+        result =PRIME*result+(origin!=null?origin.hashCode():0);
+        result =PRIME*result+ Float.floatToIntBits(price);
+        result =PRIME*result+(category!=null?category.hashCode():0);
+        result =PRIME*result+(yearOfIssue!=null?yearOfIssue.hashCode():0);
+        result =PRIME*result+(type!=null?type.hashCode():0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        string.append("Accessory{");
+        string.append("id='");
+        string.append(id);
+        string.append('\'');
+        string.append(", name='");
+        string.append(name);
+        string.append('\'');
+        string.append(", origin='");
+        string.append(origin);
+        string.append('\'');
+        string.append(", price=");
+        string.append(price);
+        string.append(", category='");
+        string.append(category);
+        string.append('\'');
+        string.append(", type=");
+        string.append(type);
+        string.append(", yearOfIssue=");
+        string.append(yearOfIssue);
+        string.append('}');
+
+        return string.toString();
     }
 }

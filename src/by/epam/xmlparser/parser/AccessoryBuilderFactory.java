@@ -28,7 +28,7 @@ public class AccessoryBuilderFactory {
             }
         } catch (IllegalArgumentException | EnumConstantNotPresentException e) {
             logger.error("Такого типа парсера не сущестует");
+            throw new CustomException("Выбранного парсера не существует");
         }
-        throw new CustomException("Тип парсера выбран некорректно");
     }
 }

@@ -1,6 +1,7 @@
 package by.epam.xmlparser.entity;
 
 import java.time.Year;
+import java.util.Objects;
 
 public class Cpu extends Accessory{
     private String socket;
@@ -10,10 +11,10 @@ public class Cpu extends Accessory{
     public Cpu() {
     }
 
-    public Cpu(String id, String origin, float price,
+    public Cpu(String id, String origin, String name, float price,
                String category, Type type, Year yearOfIssue, String socket,
                int frequency, int coreNum) {
-        super(id,origin,price,category,type,yearOfIssue);
+        super(id,origin,name,price,category,type,yearOfIssue);
         this.frequency = frequency;
         this.coreNum = coreNum;
     }
@@ -43,6 +44,27 @@ public class Cpu extends Accessory{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cpu)) return false;
+        if (!super.equals(o)) return false;
+        Cpu cpu = (Cpu) o;
+        return frequency == cpu.frequency &&
+                coreNum == cpu.coreNum &&
+                Objects.equals(socket, cpu.socket);
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = super.hashCode();
+        result =PRIME*result+frequency;
+        result =PRIME*result+coreNum;
+        return result;
+    }
+
+    @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
         string.append("Cpu{" + "id='");
@@ -66,4 +88,5 @@ public class Cpu extends Accessory{
         string.append('}');
         return string.toString();
     }
+    //TODO: спросить по переопределние hashcode и etc в абстрактном классе и применении далее
 }

@@ -1,6 +1,8 @@
 package by.epam.xmlparser.parser;
 
 import by.epam.xmlparser.entity.Accessory;
+import by.epam.xmlparser.exception.CustomException;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,5 +25,5 @@ public abstract class AbstractAccessoryBuilder {
         this.accessories = accessories;
     }
 
-    public abstract void buildSetAccessory(String fileName);
+    public abstract void buildSetAccessory(String fileName) throws CustomException;
 }

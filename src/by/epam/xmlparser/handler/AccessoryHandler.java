@@ -20,13 +20,6 @@ public class AccessoryHandler extends DefaultHandler {
     private boolean isMemory;
     private ComputersXmlTag currentTag;
     private final EnumSet<ComputersXmlTag> withText;
-    private static final String ATTRIBUTE_PERIPHERY = "periphery";
-    private static final String ATTRIBUTE_COOLING = "cooling";
-    private static final String ATTRIBUTE_REQUIRED = "required_for_launch";
-    private static final String ELEMENT_CPU = "CPU";
-    private static final String ELEMENT_GPU = "GPU";
-    private static final String ELEMENT_MEMORY = "Memory";
-    private static final String ELEMENT_ID = "id";
     private static final String ELEMENT_POSITIVE = "yes";
 
     public AccessoryHandler(Set<Accessory> accessorySet) {
@@ -54,24 +47,24 @@ public class AccessoryHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
-        if (qName.equals(ELEMENT_CPU)||qName.equals(ELEMENT_GPU)||qName.equals(ELEMENT_MEMORY)) {
+        if (qName.equals(ComputersXmlTag.CPU.getValue())||qName.equals(ComputersXmlTag.GPU.getValue())||qName.equals(ComputersXmlTag.MEMORY.getValue())) {
             objectCreation(attributes,qName);
         }
         if (qName.equals("type")) {
             if (isCpu) {
-                cpu.getType().setPeriphery(responseToBoolean(attributes.getValue(ATTRIBUTE_PERIPHERY)));
-                cpu.getType().setHasCooling(responseToBoolean(attributes.getValue(ATTRIBUTE_COOLING)));
-                cpu.getType().setRequiredForLaunch(responseToBoolean(attributes.getValue(ATTRIBUTE_REQUIRED)));
+                cpu.getType().setPeriphery(responseToBoolean(attributes.getValue(ComputersXmlTag.PERIPHERY.getValue())));
+                cpu.getType().setHasCooling(responseToBoolean(attributes.getValue(ComputersXmlTag.COOLING.getValue())));
+                cpu.getType().setRequiredForLaunch(responseToBoolean(attributes.getValue(ComputersXmlTag.REQUIRED_FOR_LAUNCH.getValue())));
             }
             if (isGpu) {
-                gpu.getType().setPeriphery(responseToBoolean(attributes.getValue(ATTRIBUTE_PERIPHERY)));
-                gpu.getType().setHasCooling(responseToBoolean(attributes.getValue(ATTRIBUTE_COOLING)));
-                gpu.getType().setRequiredForLaunch(responseToBoolean(attributes.getValue(ATTRIBUTE_REQUIRED)));
+                gpu.getType().setPeriphery(responseToBoolean(attributes.getValue(ComputersXmlTag.PERIPHERY.getValue())));
+                gpu.getType().setHasCooling(responseToBoolean(attributes.getValue(ComputersXmlTag.COOLING.getValue())));
+                gpu.getType().setRequiredForLaunch(responseToBoolean(attributes.getValue(ComputersXmlTag.REQUIRED_FOR_LAUNCH.getValue())));
             }
             if(isMemory) {
-                memory.getType().setPeriphery(responseToBoolean(attributes.getValue(ATTRIBUTE_PERIPHERY)));
-                memory.getType().setHasCooling(responseToBoolean(attributes.getValue(ATTRIBUTE_COOLING)));
-                memory.getType().setRequiredForLaunch(responseToBoolean(attributes.getValue(ATTRIBUTE_REQUIRED)));
+                memory.getType().setPeriphery(responseToBoolean(attributes.getValue(ComputersXmlTag.PERIPHERY.getValue())));
+                memory.getType().setHasCooling(responseToBoolean(attributes.getValue(ComputersXmlTag.COOLING.getValue())));
+                memory.getType().setRequiredForLaunch(responseToBoolean(attributes.getValue(ComputersXmlTag.REQUIRED_FOR_LAUNCH.getValue())));
             }
         } else {
             ComputersXmlTag temp = ComputersXmlTag.valueOf(qName.toUpperCase());
@@ -83,15 +76,15 @@ public class AccessoryHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName){
-        if (qName.equals(ELEMENT_CPU)) {
+        if (qName.equals(ComputersXmlTag.CPU.getValue())) {
             accessories.add(cpu);
             isCpu=false;
         }
-        if (qName.equals(ELEMENT_GPU)) {
+        if (qName.equals(ComputersXmlTag.GPU.getValue())) {
             accessories.add(gpu);
             isGpu=false;
         }
-        if (qName.equals(ELEMENT_MEMORY)){
+        if (qName.equals(ComputersXmlTag.MEMORY.getValue())){
             accessories.add(memory);
             isGpu=false;
         }
@@ -121,19 +114,19 @@ public class AccessoryHandler extends DefaultHandler {
         currentTag = null;
     }
     private void objectCreation(Attributes attributes, String qName) {
-        if (ELEMENT_CPU.equals(qName)) {
+        if (ComputersXmlTag.CPU.getValue().equals(qName)) {
             cpu = new Cpu();
-            cpu.setId(attributes.getValue(ELEMENT_ID));
+            cpu.setId(attributes.getValue(ComputersXmlTag.ID.getValue()));
             isCpu = true;
         }
-        if (qName.equals(ELEMENT_GPU)) {
+        if (qName.equals(ComputersXmlTag.GPU.getValue())) {
             gpu = new Gpu();
-            gpu.setId(attributes.getValue(ELEMENT_ID));
+            gpu.setId(attributes.getValue(ComputersXmlTag.ID.getValue()));
             isGpu = true;
         }
-        if(qName.equals(ELEMENT_MEMORY)){
+        if(qName.equals(ComputersXmlTag.MEMORY.getValue())){
             memory = new Memory();
-            memory.setId(attributes.getValue(ELEMENT_ID));
+            memory.setId(attributes.getValue(ComputersXmlTag.ID.getValue()));
             isMemory = true;
         }
     }

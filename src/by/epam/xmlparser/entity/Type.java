@@ -2,6 +2,7 @@ package by.epam.xmlparser.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Type {
     private boolean isPeriphery;
@@ -65,6 +66,32 @@ public class Type {
     public void setPorts (List<String> ports) {this.ports = ports;}
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Type)) return false;
+        Type type = (Type) o;
+        return isPeriphery == type.isPeriphery &&
+                isRequiredForLaunch == type.isRequiredForLaunch &&
+                hasCooling == type.hasCooling &&
+                Float.compare(type.energyConsumption, energyConsumption) == 0 &&
+                Objects.equals(ports, type.ports);
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = super.hashCode();
+        result = PRIME * result + (isPeriphery?1:0);
+        result = PRIME * result + (isRequiredForLaunch?1:0);
+        result = PRIME * result + (hasCooling?1:0);
+        result = PRIME * result + Float.floatToIntBits(energyConsumption);
+        for (String element:ports){
+            result = PRIME *result + (element!=null?element.hashCode():0);
+        }
+        return result;
+    }
+
+    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Type{" + "isPeriphery=");
@@ -83,5 +110,5 @@ public class Type {
         builder.append('}');
         return builder.toString();
     }
-    //TODO: Спросить про гет метод у Листа
+    //TODO: спросить про методы в классе с dom парсером
 }

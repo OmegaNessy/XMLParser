@@ -39,6 +39,7 @@ public class AccessoryDomBuilder extends AbstractAccessoryBuilder{
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
             logger.error("Ошибка конфигурации парсера");
+
         }
     }
 
