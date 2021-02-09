@@ -80,13 +80,15 @@ public class Type {
     @Override
     public int hashCode() {
         final int PRIME = 31;
-        int result = super.hashCode();
+        int result = 1;
         result = PRIME * result + (isPeriphery?1:0);
         result = PRIME * result + (isRequiredForLaunch?1:0);
         result = PRIME * result + (hasCooling?1:0);
         result = PRIME * result + Float.floatToIntBits(energyConsumption);
-        for (String element:ports){
-            result = PRIME *result + (element!=null?element.hashCode():0);
+        if(ports!=null) {
+            for (String element : ports) {
+                result = PRIME * result + (element != null ? element.hashCode() : 0);
+            }
         }
         return result;
     }
@@ -96,19 +98,25 @@ public class Type {
         StringBuilder builder = new StringBuilder();
         builder.append("Type{" + "isPeriphery=");
         builder.append(isPeriphery);
+        builder.append("\n");
         builder.append(", isRequiredForLaunch=");
         builder.append(isRequiredForLaunch);
+        builder.append("\n");
         builder.append(", hasCooling=");
         builder.append(hasCooling);
+        builder.append("\n");
         builder.append(", energyConsumption=");
         builder.append(energyConsumption);
+        builder.append("\n");
         builder.append(", ports=");
-        for (String port:ports){
-            builder.append(port);
-            builder.append(',');
+        if (ports != null) {
+            for (String port:ports){
+                builder.append(port);
+                builder.append(',');
+            }
         }
         builder.append('}');
         return builder.toString();
     }
-    //TODO: спросить про методы в классе с dom парсером
+
 }

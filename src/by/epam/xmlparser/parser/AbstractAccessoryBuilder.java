@@ -9,21 +9,29 @@ import java.util.Set;
 public abstract class AbstractAccessoryBuilder {
     private Set<Accessory> accessories;
 
-    public AbstractAccessoryBuilder() {
+    protected AbstractAccessoryBuilder() {
         accessories = new HashSet<>();
-    }
-
-    public AbstractAccessoryBuilder(Set<Accessory> accessories) {
-        this.accessories = accessories;
     }
 
     public Set<Accessory> getAccessories() {
         return accessories;
     }
 
-    public void setAccessories(final Set<Accessory> accessories) {
+    public void setAccessories(Set<Accessory> accessories) {
         this.accessories = accessories;
     }
 
     public abstract void buildSetAccessory(String fileName) throws CustomException;
+
+    @Override
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        string.append(" ");
+        if (accessories != null) {
+            for (Accessory accessory : accessories) {
+                string.append(accessories.toString());
+            }
+        }
+        return string.toString();
+    }
 }

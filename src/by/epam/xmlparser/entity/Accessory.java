@@ -12,10 +12,10 @@ public abstract class Accessory {
     protected Type type = new Type();
     protected Year yearOfIssue;
 
-    public Accessory() {
+    protected Accessory() {
     }
 
-    public Accessory(String id, String origin, String name, //TODO:SolarLint tip protected. Quest: WHY?
+    protected Accessory(String id, String origin, String name, //TODO:SolarLint tip protected. Quest: WHY? сделать протектед и на след уроке попросить объяснить
                      float price, String category,
                      Type type, Year yearOfIssue) {
         this.id = id;
@@ -111,30 +111,4 @@ public abstract class Accessory {
         return result;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder string = new StringBuilder();
-        string.append("Accessory{");
-        string.append("id='");
-        string.append(id);
-        string.append('\'');
-        string.append(", name='");
-        string.append(name);
-        string.append('\'');
-        string.append(", origin='");
-        string.append(origin);
-        string.append('\'');
-        string.append(", price=");
-        string.append(price);
-        string.append(", category='");
-        string.append(category);
-        string.append('\'');
-        string.append(", type=");
-        string.append(type);
-        string.append(", yearOfIssue=");
-        string.append(yearOfIssue);
-        string.append('}');
-
-        return string.toString();
-    }
 }

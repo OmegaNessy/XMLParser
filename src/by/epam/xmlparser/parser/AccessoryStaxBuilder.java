@@ -28,11 +28,6 @@ public class AccessoryStaxBuilder extends AbstractAccessoryBuilder {
         inputFactory = XMLInputFactory.newInstance();
     }
 
-    public AccessoryStaxBuilder(Set<Accessory> accessories) {
-        super(accessories);
-        inputFactory = XMLInputFactory.newInstance();
-    }
-
     @Override
     public void buildSetAccessory(final String fileName) {
         XMLStreamReader reader;

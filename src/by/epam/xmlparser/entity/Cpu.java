@@ -67,26 +67,35 @@ public class Cpu extends Accessory{
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
-        string.append("Cpu{" + "id='");
+        string.append("Cpu{" + "id=");
         string.append(id);
-        string.append(", origin='");
+        string.append("\n");
+        string.append(", origin=");
         string.append(origin);
+        string.append("\n");
         string.append(", price=");
         string.append(price);
-        string.append(", category='");
+        string.append("\n");
+        string.append(", category=");
         string.append(category);
+        string.append("\n");
         string.append(", type=");
         string.append(type.toString());
+        string.append("\n");
         string.append(", yearOfIssue=");
         string.append(yearOfIssue);
+        string.append("\n");
         string.append(", socket=");
         string.append(socket);
+        string.append("\n");
         string.append(", frequency=");
         string.append(frequency);
-        string.append(", coreNum='");
+        string.append("\n");
+        string.append(", coreNum=");
         string.append(coreNum);
         string.append('}');
+        string.append("\n");
+        string.append("\n");
         return string.toString();
     }
-    //TODO: спросить по переопределние hashcode и etc в абстрактном классе и применении далее
 }

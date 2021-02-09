@@ -56,23 +56,32 @@ public class Gpu extends Accessory{
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
-        string.append("Gpu{" + "id='");
+        string.append("Gpu{" + "id=");
         string.append(id);
-        string.append(", origin='");
+        string.append("\n");
+        string.append(", origin=");
         string.append(origin);
+        string.append("\n");
         string.append(", price=");
         string.append(price);
-        string.append(", category='");
+        string.append("\n");
+        string.append(", category=");
         string.append(category);
+        string.append("\n");
         string.append(", type=");
         string.append(type.toString());
+        string.append("\n");
         string.append(", yearOfIssue=");
         string.append(yearOfIssue);
+        string.append("\n");
         string.append(", memoryCapacity=");
         string.append(memoryCapacity);
-        string.append(", memoryType='");
+        string.append("\n");
+        string.append(", memoryType=");
         string.append(memoryType);
         string.append('}');
+        string.append("\n");
+        string.append("\n");
         return string.toString();
     }
 }
