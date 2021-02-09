@@ -1,5 +1,6 @@
 package by.epam.xmlparser.parser;
 
+import by.epam.xmlparser.entity.Accessory;
 import by.epam.xmlparser.exception.CustomException;
 import by.epam.xmlparser.handler.AccessoryHandler;
 import org.apache.logging.log4j.LogManager;
@@ -19,7 +20,8 @@ public class AccessorySaxBuilder extends AbstractAccessoryBuilder{
     public AccessorySaxBuilder() throws CustomException {
         try {
             parser = SAXParserFactory.newInstance().newSAXParser();
-            accessoryHandler = new AccessoryHandler(getAccessories());
+            accessoryHandler = new AccessoryHandler();
+
         } catch (ParserConfigurationException e) {
             logger.error("Ошибка в конфигурации парсера");
             throw new CustomException("Ошибка конфигурации парсера", e);
@@ -33,6 +35,7 @@ public class AccessorySaxBuilder extends AbstractAccessoryBuilder{
     public void buildSetAccessory(String fileName) throws CustomException {
         try {
             parser.parse(new File(fileName), accessoryHandler);
+            this.setAccessories(accessoryHandler.getAccessories());
             logger.info("Парсинг SAX успешно завершен");
         } catch (SAXException e) {
             logger.error("Ошибка парсинга");
