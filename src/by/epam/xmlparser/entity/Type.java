@@ -2,7 +2,6 @@ package by.epam.xmlparser.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Type {
     private boolean isPeriphery;
@@ -74,7 +73,7 @@ public class Type {
                 isRequiredForLaunch == type.isRequiredForLaunch &&
                 hasCooling == type.hasCooling &&
                 Float.compare(type.energyConsumption, energyConsumption) == 0 &&
-                Objects.equals(ports, type.ports);
+                ports!=null?ports.equals(type.ports):true;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package by.epam.xmlparser.parser;
 
-import by.epam.xmlparser.entity.Accessory;
 import by.epam.xmlparser.entity.Cpu;
 import by.epam.xmlparser.entity.Gpu;
 import by.epam.xmlparser.entity.Memory;
@@ -16,7 +15,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Year;
-import java.util.Set;
 
 public class AccessoryStaxBuilder extends AbstractAccessoryBuilder {
     private static final Logger logger = LogManager.getLogger();
@@ -54,15 +52,15 @@ public class AccessoryStaxBuilder extends AbstractAccessoryBuilder {
     private void buildObject(String name, XMLStreamReader reader) throws XMLStreamException {
         if (ComputersXmlTag.valueOf(name.toUpperCase()) == ComputersXmlTag.CPU) {
             Cpu cpu = buildCpu(reader);
-            getAccessories().add(cpu);
+            addAccessory(cpu);
         }
         if (ComputersXmlTag.valueOf(name.toUpperCase()) == ComputersXmlTag.GPU) {
             Gpu gpu = buildGpu(reader);
-            getAccessories().add(gpu);
+            addAccessory(gpu);
         }
         if (ComputersXmlTag.valueOf(name.toUpperCase()) == ComputersXmlTag.MEMORY) {
             Memory memory = buildMemory(reader);
-            getAccessories().add(memory);
+            addAccessory(memory);
         }
     }
 

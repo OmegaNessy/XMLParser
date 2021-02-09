@@ -1,7 +1,6 @@
 package by.epam.xmlparser.entity;
 
 import java.time.Year;
-import java.util.Objects;
 
 public class Memory extends Accessory {
     private int memoryCapacity;
@@ -41,7 +40,7 @@ public class Memory extends Accessory {
         if (!super.equals(o)) return false;
         Memory memory = (Memory) o;
         return memoryCapacity == memory.memoryCapacity &&
-                Objects.equals(memoryType, memory.memoryType);
+                memoryType == memory.memoryType || (memoryType != null && memoryType.equals(memory.memoryType));
     }
 
     @Override

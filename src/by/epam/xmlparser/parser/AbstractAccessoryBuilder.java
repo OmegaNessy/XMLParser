@@ -1,3 +1,4 @@
+
 package by.epam.xmlparser.parser;
 
 import by.epam.xmlparser.entity.Accessory;
@@ -19,6 +20,10 @@ public abstract class AbstractAccessoryBuilder {
 
     public void setAccessories(Set<Accessory> accessories) {
         this.accessories = accessories;
+    }
+
+    public void addAccessory(Accessory accessory){
+        this.accessories.add(accessory);
     }
 
     public abstract void buildSetAccessory(String fileName) throws CustomException;

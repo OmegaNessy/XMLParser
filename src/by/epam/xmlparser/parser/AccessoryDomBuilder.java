@@ -42,18 +42,18 @@ public class AccessoryDomBuilder extends AbstractAccessoryBuilder{
             NodeList gpus = element.getElementsByTagName(ComputersXmlTag.GPU.getValue());
             for (int i = 0; i < cpus.getLength(); i++) {
                 Element node = (Element)cpus.item(i);
-                getAccessories().add(buildCpu(node));
+                addAccessory(buildCpu(node));
                 //так как поле abstract класс private, то обращение к нему заблочено,
                 //но так как это унаследованный класс и его конструктор имеет модификатор protected
                 //то воспользоваться и изменить его поля могут только наследованные от него классы
             }
                 for (int i = 0; i < gpus.getLength(); i++) {
                     Element node = (Element)gpus.item(i);
-                    getAccessories().add(buildGpu(node));
+                    addAccessory(buildGpu(node));
                 }
             for (int i = 0; i < memories.getLength(); i++) {
                 Element node = (Element)memories.item(i);
-                getAccessories().add(buildMemory(node));
+                addAccessory(buildMemory(node));
             }
             logger.info("Dom парсинг прошел успешно");
         } catch (IOException e) {
@@ -98,6 +98,7 @@ public class AccessoryDomBuilder extends AbstractAccessoryBuilder{
             gpu.getType().addPort(gpuElement.getElementsByTagName(ComputersXmlTag.PORTS.getValue()).item(i).getTextContent());
         }
         gpu.setYearOfIssue(Year.parse(getElementTextContent(gpuElement,ComputersXmlTag.YEAR_OF_ISSUE.getValue())));
+        gpu.getType().setEnergyConsumption(Float.parseFloat(getElementTextContent(gpuElement,ComputersXmlTag.ENERGY_CONSUMPTION.getValue())));
         gpu.getType().setPeriphery(attributeToBoolean(elementType.getAttribute("periphery")));
         gpu.getType().setHasCooling(attributeToBoolean(elementType.getAttribute("cooling")));
         gpu.getType().setRequiredForLaunch(attributeToBoolean(elementType.getAttribute("required_for_launch")));

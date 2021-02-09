@@ -1,7 +1,6 @@
 package by.epam.xmlparser.entity;
 
 import java.time.Year;
-import java.util.Objects;
 
 public class Gpu extends Accessory{
     private int memoryCapacity;
@@ -41,7 +40,7 @@ public class Gpu extends Accessory{
         if (!super.equals(o)) return false;
         Gpu gpu = (Gpu) o;
         return memoryCapacity == gpu.memoryCapacity &&
-                Objects.equals(memoryType, gpu.memoryType);
+                memoryType == gpu.memoryType || (memoryType != null && memoryType.equals(gpu.memoryType));
     }
 
     @Override

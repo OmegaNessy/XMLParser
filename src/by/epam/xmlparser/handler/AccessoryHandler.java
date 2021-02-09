@@ -28,7 +28,7 @@ public class AccessoryHandler extends DefaultHandler {
     }
 
     public Set<Accessory> getAccessories() {
-        return accessories;
+        return Set.copyOf(accessories);
     }
 
     public void setAccessories(Set<Accessory> accessories) {
@@ -86,7 +86,7 @@ public class AccessoryHandler extends DefaultHandler {
         }
         if (qName.equals(ComputersXmlTag.MEMORY.getValue())){
             accessories.add(memory);
-            isGpu=false;
+            isMemory=false;
         }
     }
 
@@ -192,7 +192,7 @@ public class AccessoryHandler extends DefaultHandler {
             gpu.setCategory(data);
         }
         if(isMemory){
-            memory.setName(data);
+            memory.setCategory(data);
         }
     }
 

@@ -1,7 +1,6 @@
 package by.epam.xmlparser.entity;
 
 import java.time.Year;
-import java.util.Objects;
 
 public abstract class Accessory {
     protected String id;
@@ -88,20 +87,20 @@ public abstract class Accessory {
         if (this == o) return true;
         if (!(o instanceof Accessory)) return false;
         Accessory accessory = (Accessory) o;
-        return Float.compare(accessory.price, price) == 0 &&
-                Objects.equals(id, accessory.id) &&
-                Objects.equals(name, accessory.name) &&
-                Objects.equals(origin, accessory.origin) &&
-                Objects.equals(category, accessory.category) &&
+        return Float.compare(accessory.price,price)==0 &&
+                id == accessory.id || (id!=null && id.equals(accessory.id)) &&
+                name == accessory.name || (name!=null && name.equals(accessory.name)) &&
+                origin == accessory.origin || (origin!=null && origin.equals(accessory.origin)) &&
+                category == accessory.category ||(category!=null && category.equals(accessory.category)) &&
                 type.equals(accessory.type) &&
-                Objects.equals(yearOfIssue, accessory.yearOfIssue);
+                yearOfIssue.equals(accessory.yearOfIssue);
     }
 
     @Override
     public int hashCode() {
         final int PRIME = 31;
         int result = 1;
-        result = PRIME*result +(id!=null?id.hashCode():0);
+        result =PRIME*result +(id!=null?id.hashCode():0);
         result =PRIME*result+(name!=null?name.hashCode():0);
         result =PRIME*result+(origin!=null?origin.hashCode():0);
         result =PRIME*result+ Float.floatToIntBits(price);

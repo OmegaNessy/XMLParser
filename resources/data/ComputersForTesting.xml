@@ -13,6 +13,18 @@
         <frequency>3900</frequency>
         <cores_num>6</cores_num>
     </CPU>
+    <Memory id="ID-201">
+        <name>Patriot Memory SL</name>
+        <origin>RU</origin>
+        <price>60.07</price>
+        <category>Memory</category>
+        <type periphery="no" required_for_launch="yes" cooling="no">
+            <energy_consumption>1.5</energy_consumption>
+        </type>
+        <year_of_issue>2017</year_of_issue>
+        <memory_capacity>4</memory_capacity>
+        <memory_type>DDR3</memory_type>
+    </Memory>
     <GPU id="ID-301">
         <name>Patriot Memory SL</name>
         <origin>US</origin>
@@ -27,17 +39,5 @@
         <memory_capacity>4096</memory_capacity>
         <memory_type>GDDR5</memory_type>
     </GPU>
-    <Memory id="ID-201">
-        <name>Patriot Memory SL</name>
-        <origin>RU</origin>
-        <price>60.07</price>
-        <category>Memory</category>
-        <type periphery="no" required_for_launch="yes" cooling="no">
-            <energy_consumption>1.5</energy_consumption>
-        </type>
-        <year_of_issue>2017</year_of_issue>
-        <memory_capacity>4</memory_capacity>
-        <memory_type>DDR3</memory_type>
-    </Memory>
 
 </devices>
