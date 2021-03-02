@@ -3,13 +3,13 @@ package by.epam.xmlparser.entity;
 import java.time.Year;
 
 public abstract class Accessory {
-    protected String id;
-    protected String name;
-    protected String origin;
-    protected float price;
-    protected String category;
-    protected Type type = new Type();
-    protected Year yearOfIssue;
+    private String id;
+    private String name;
+    private String origin;
+    private float price;
+    private String category;
+    private Type type = new Type();
+    private Year yearOfIssue;
 
     protected Accessory() {
     }
