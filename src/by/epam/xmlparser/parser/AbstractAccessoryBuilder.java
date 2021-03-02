@@ -15,7 +15,7 @@ public abstract class AbstractAccessoryBuilder {
     }
 
     public Set<Accessory> getAccessories() {
-        return accessories;
+        return Set.copyOf(accessories);
     }
 
     public void setAccessories(Set<Accessory> accessories) {

@@ -7,6 +7,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 import java.time.Year;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Set;
 
 public class AccessoryHandler extends DefaultHandler {
@@ -27,6 +28,11 @@ public class AccessoryHandler extends DefaultHandler {
         withText = EnumSet.range(ComputersXmlTag.NAME,ComputersXmlTag.PORTS);
     }
 
+    public AccessoryHandler(){
+        this.accessories = new HashSet<>();
+        withText = EnumSet.range(ComputersXmlTag.NAME,ComputersXmlTag.PORTS);
+    }
+
     public Set<Accessory> getAccessories() {
         return Set.copyOf(accessories);
     }
@@ -42,6 +48,7 @@ public class AccessoryHandler extends DefaultHandler {
 
     @Override
     public void endDocument(){
+
         logger.info("End parsing...");
     }
 
